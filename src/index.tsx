@@ -1,3 +1,3 @@
 import { sum } from "./sum";
 
-console.log(sum(5, 6));
+sum(5, 6);
