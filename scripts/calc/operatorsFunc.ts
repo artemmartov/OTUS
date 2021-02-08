@@ -1,5 +1,4 @@
-export type ScalarOperationType = (first: any, second: any) => any;
-
+export type ScalarOperationType = (first: number, second: number) => any;
 
 export const mul: ScalarOperationType = (first, second) => first * second;
 

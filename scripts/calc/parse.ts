@@ -1,11 +1,11 @@
 import { mul, div, add, minus } from './operatorsFunc';
 import { listOfOperators } from './constants';
-import { validationCheck, divisionByZero } from './validation'
+import { isValidValue, isDivisibleByZero } from './validation'
 
 
 export const parse = (str: string) => {
     const data = str.split(' ').filter(el => el !== '').map(el => {
-        if (validationCheck(el)) {
+        if (!isValidValue(el)) {
             return 'error'
         }
         if (!listOfOperators.includes(el)) {
@@ -26,14 +26,14 @@ const prioritiesRes = (arr: (string | number)[]) => {
         arr.forEach(((el, index) => {
             if (el === '*' || el === '/') {
                 if (el === '*') {
-                    const result: number = mul(arr[index - 1], arr[index + 1]);
+                    const result: number = mul(arr[index - 1] as number, arr[index + 1] as number);
                     arr.splice(index - 1, 3, result);
                 }
                 if (el === '/') {
-                    if (!divisionByZero(arr[index - 1])) {
+                    if (!isDivisibleByZero(arr[index - 1])) {
                         return 'Ошибка, нельзя делить на 0'
                     }
-                    const result: number = div(arr[index - 1], arr[index + 1]);
+                    const result: number = div(arr[index - 1] as number, arr[index + 1] as number);
                     arr.splice(index - 1, 3, result);
                 }
             }
@@ -42,11 +42,11 @@ const prioritiesRes = (arr: (string | number)[]) => {
         arr.forEach(((el, index) => {
             if (el === '+' || el === '-') {
                 if (el === '+') {
-                    const result: number = add(arr[index - 1], arr[index + 1]);
+                    const result: number = add(arr[index - 1] as number, arr[index + 1] as number);
                     arr.splice(index - 1, 3, result);
                 }
                 if (el === '-') {
-                    const result: number = minus(arr[index - 1], arr[index + 1]);
+                    const result: number = minus(arr[index - 1] as number, arr[index + 1] as number);
                     arr.splice(index - 1, 3, result);
                 }
             }

@@ -1,16 +1,16 @@
 import { listOfOperators } from './constants';
 
 
-export const divisionByZero = (num: number | string) => {
+export const isDivisibleByZero = (num: number | string) => {
     if (num === 0) {
         return false;
     }
     return true;
 }
 
-export const validationCheck = (value: string) => {
+export const isValidValue = (value: string) => {
     if (!listOfOperators.includes(value) && isNaN(Number(value))) {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
