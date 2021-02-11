@@ -4,19 +4,19 @@ import { Row } from "./Row";
 
 export interface FieldProps {
   cells: string[][];
-  showNumber: (value: string) => void;
+  onClickHandler: (value: string) => void;
 }
 
-export const showNumber = (value: string) => {
-// eslint-disable-next-line no-console
+export const onClickHandler = (value: string) => {
+  // eslint-disable-next-line no-console
   console.log("string", value);
 };
 
-export const Field: React.FC<FieldProps> = ({ cells, showNumber }) => {
+export const Field: React.FC<FieldProps> = ({ cells, onClickHandler }) => {
   return (
     <div>
       {cells.map((cell, index) => {
-        return <Row key={index} row={cell} showNumber={showNumber} />;
+        return <Row key={index} row={cell} onClickHandler={onClickHandler} />;
       })}
     </div>
   );

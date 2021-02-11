@@ -17,6 +17,6 @@ export const FieldComponent: Story<FieldProps> = () => (
       ["", "", "", "", ""],
       ["", ""],
     ])}
-    showNumber={action("showNumber")}
+    onClickHandler={action("onClickHandler")}
   />
 );

@@ -11,7 +11,7 @@ export default {
 } as Meta;
 
 const Template: Story<CellProps> = () => (
-  <Cell showNumber={action("showNumber")} cell={text("Значение", "1")} />
+  <Cell onClickHandler={action("onClickHandler")} cell={text("Значение", "1")} />
 );
 
 export const CellComponent = Template.bind({});

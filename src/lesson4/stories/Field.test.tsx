@@ -2,21 +2,21 @@ import React from "react";
 import { mount } from "enzyme";
 import { Field } from "./Field";
 
-describe("Компонент со всеми полями", () => {
+describe("Field component", () => {
   const mockCallBack = jest.fn();
   const wrapper = mount(
-    <Field cells={[[""], [""]]} showNumber={mockCallBack} />
+    <Field cells={[[""], [""]]} onClickHandler={mockCallBack} />
   );
 
-  it("В компоненте Field найдено 2 ячейки", () => {
+  it("Should found 2 elements with the specified class", () => {
     expect(wrapper.find(".cell").length).toBe(2);
   });
 
-  it("В компоненте Field найдено 2 строчки по горизонтали", () => {
+  it("Should found 2 rows with the specified class", () => {
     expect(wrapper.find(".row").length).toBe(2);
   });
 
-  it("В компоненте Field найдено 2 ячейки c цифрой 1", () => {
+  it("Should found 2 elements with 1", () => {
     expect(wrapper.findWhere((el) => el.html() === "1").length).toBe(2);
   });
 });

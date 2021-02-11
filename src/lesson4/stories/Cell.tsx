@@ -3,12 +3,12 @@ import React from "react";
 
 export interface CellProps {
   cell: string;
-  showNumber: (value: string) => void;
+  onClickHandler: (value: string) => void;
 }
 
-export const Cell: React.FC<CellProps> = ({ cell, showNumber }) => {
+export const Cell: React.FC<CellProps> = ({ cell, onClickHandler }) => {
   return (
-    <div className="cell" onClick={() => showNumber(cell)}>
+    <div className="cell" onClick={() => onClickHandler(cell)}>
       {cell}
     </div>
   );

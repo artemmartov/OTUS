@@ -3,15 +3,23 @@ import { shallow } from "enzyme";
 
 import { Cell } from "./Cell";
 
-describe("Одна ячейка", () => {
+describe("Cell component", () => {
   const mockCallBack = jest.fn();
-  const componentCell = shallow(<Cell showNumber={mockCallBack} cell="2" />);
+  let componentCell: any;
 
-  it("Рендер компонента", () => {
+  beforeEach(() => {
+    componentCell = shallow(<Cell onClickHandler={mockCallBack} cell="2" />);
+  });
+
+  it("Should render component with the correct value ", () => {
     expect(componentCell.matchesElement(<div>2</div>)).toBe(true);
   });
 
-  test("Симуляция клика по ячейке", () => {
+  it("Shoult get snapshot component", () => {
+    expect(componentCell).toMatchInlineSnapshot(`ShallowWrapper {}`);
+  });
+
+  test("Click simulation", () => {
     componentCell.simulate("click");
     expect(mockCallBack.mock.calls.length).toEqual(1);
   });
