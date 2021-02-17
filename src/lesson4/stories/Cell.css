@@ -1,0 +1,9 @@
+.cell {
+    width: 25px;
+    height: 25px;
+    border: 1px solid;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 5px;
+    cursor: pointer;
+}
