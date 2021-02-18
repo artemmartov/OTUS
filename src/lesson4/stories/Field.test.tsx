@@ -3,9 +3,8 @@ import { mount } from "enzyme";
 import { Field } from "./Field";
 
 describe("Field component", () => {
-  const mockCallBack = jest.fn();
   const wrapper = mount(
-    <Field cells={[[""], [""]]} onClickHandler={mockCallBack} />
+    <Field />
   );
 
   it("Should found 2 elements with the specified class", () => {
