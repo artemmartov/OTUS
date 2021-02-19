@@ -29,27 +29,27 @@ export class Field extends Component<{}, FieldState> {
   }
 
   changeValue() {
-    this.setState({
+    this.setState((state: FieldState) => ({
       cells: this.state.cells.concat([['']]),
-    })
+    }));
   }
 
   shouldComponentUpdate(prevProps: {}, prevState: FieldState) {
-    return prevState.cells.length !== this.state.cells.length
+    return prevState.cells.length !== this.state.cells.length;
   }
 
   componentDidUpdate(prevProps: {}, prevState: FieldState) {
     if (prevState.cells.length === 3) {
       this.setState({
         cells: this.state.cells.concat([['', '', '']]),
-      })
+      });
     }
   }
 
   componentDidMount() {
     this.setState({
-      cells: [['']]
-    })
+      cells: [[""]],
+    });
     this.timerId = window.setInterval(this.changeValue, 3000);
     this.changeValue();
   }
@@ -70,4 +70,4 @@ export class Field extends Component<{}, FieldState> {
       </div>
     );
   }
-};
+}

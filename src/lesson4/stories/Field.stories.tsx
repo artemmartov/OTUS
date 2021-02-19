@@ -8,9 +8,7 @@ export default {
   decorators: [withKnobs],
 };
 
-export const FieldComponent = () => (
-  <Field />
-);
+export const FieldComponent = () => <Field />;
 
 // Это компонент без пропсов, а значит мы не можем указать к нему экшен.
 // Можем ли мы как-то использовать экшен не вместо пропса,

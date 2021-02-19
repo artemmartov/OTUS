@@ -11,7 +11,10 @@ export default {
 };
 
 const Template: Story<RowProps> = () => (
-  <Row row={array("Ячейки", ["", ""])} onClickHandler={action("onClickHandler")} />
+  <Row
+    row={array("Ячейки", ["", ""])}
+    onClickHandler={action("onClickHandler")}
+  />
 );
 
 export const RowComponent = Template.bind({});

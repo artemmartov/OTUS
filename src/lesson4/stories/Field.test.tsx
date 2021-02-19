@@ -3,9 +3,7 @@ import { mount } from "enzyme";
 import { Field } from "./Field";
 
 describe("Field component", () => {
-  const wrapper = mount(
-    <Field />
-  );
+  const wrapper = mount(<Field />);
 
   it("Should found 2 elements with the specified class", () => {
     expect(wrapper.find(".cell").length).toBe(2);
