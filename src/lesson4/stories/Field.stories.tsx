@@ -1,5 +1,5 @@
 import React from "react";
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, number } from "@storybook/addon-knobs";
 import { Field } from "./Field";
 
 export default {
@@ -8,8 +8,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const FieldComponent = () => <Field />;
-
-// Это компонент без пропсов, а значит мы не можем указать к нему экшен.
-// Можем ли мы как-то использовать экшен не вместо пропса,
-// а вместо той функции, что внутри компонента? (onClickHandler)
+export const FieldComponent = () => (
+  <Field x={number("По горизонтали", 2)} y={number("По вертикали", 9)} />
+);
