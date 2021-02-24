@@ -1,8 +1,6 @@
 import React from "react";
-import { Story } from "@storybook/react/types-6-0";
-import { action } from "@storybook/addon-actions";
-import { withKnobs, object } from "@storybook/addon-knobs";
-import { Field, FieldProps } from "./Field";
+import { withKnobs, number } from "@storybook/addon-knobs";
+import { Field } from "./Field";
 
 export default {
   title: "Components",
@@ -10,13 +8,6 @@ export default {
   decorators: [withKnobs],
 };
 
-export const FieldComponent: Story<FieldProps> = () => (
-  <Field
-    cells={object("Данные", [
-      ["", "", "", "", ""],
-      ["", "", "", "", ""],
-      ["", ""],
-    ])}
-    onClickHandler={action("onClickHandler")}
-  />
+export const FieldComponent = () => (
+  <Field x={number("По горизонтали", 2)} y={number("По вертикали", 9)} />
 );
