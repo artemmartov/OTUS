@@ -5,15 +5,18 @@ import { Field } from "./Field";
 describe("Field component", () => {
   let component: any;
   const wrapper = mount(<Field x={4} y={6} />);
-  const setUp = () => shallow(<Field x={4} y={6} />)
+  const setUp = () => shallow(<Field x={4} y={6} />);
 
   const componentDidMountSpy = jest.spyOn(Field.prototype, "componentDidMount");
-  const componentWillUnmountSpy = jest.spyOn(Field.prototype, "componentWillUnmount");
+  const componentWillUnmountSpy = jest.spyOn(
+    Field.prototype,
+    "componentWillUnmount"
+  );
   const componentDidUpdate = jest.spyOn(Field.prototype, "componentDidUpdate");
 
   beforeEach(() => {
     component = setUp();
-  })
+  });
 
   it("Should found 2 elements with the specified class", () => {
     expect(wrapper.find(".cell").length).toBe(24);
@@ -29,7 +32,8 @@ describe("Field component", () => {
 
   it("Should coming correct props", () => {
     expect(wrapper.props()).toEqual({
-      x: 4, y: 6,
+      x: 4,
+      y: 6,
     });
   });
 
@@ -44,7 +48,7 @@ describe("Field component", () => {
     });
 
     it("Should called componentDidUpdate", () => {
-      component.setProps()
+      component.setProps();
       expect(componentDidUpdate).toHaveBeenCalled();
     });
 
@@ -52,5 +56,5 @@ describe("Field component", () => {
       component.unmount();
       expect(componentWillUnmountSpy).toHaveBeenCalledTimes(1);
     });
-  })
+  });
 });
