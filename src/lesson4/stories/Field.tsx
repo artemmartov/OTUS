@@ -35,7 +35,7 @@ export class Field extends Component<FieldProps, FieldState> {
   }
 
   changeValue() {
-     // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console
     console.log("Подписка активирована");
   }
 
@@ -71,7 +71,7 @@ export class Field extends Component<FieldProps, FieldState> {
   componentWillUnmount() {
     if (this.timerId) {
       clearInterval(this.timerId);
-       // eslint-disable-next-line no-console
+      // eslint-disable-next-line no-console
       console.log("Подписка деактивирована");
     }
   }
